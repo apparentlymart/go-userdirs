@@ -12,6 +12,10 @@ type Dirs struct {
 	// which scan the contents of the configuration directories should impose
 	// some additional filtering to distinguish configuration files from data
 	// files.
+	//
+	// Files placed in ConfigDirs should ideally be things that it would be
+	// reasonable to share among multiple systems (possibly on different
+	// platforms, possibly to check into a version control system, etc.
 	ConfigDirs []string
 
 	// DataDirs is a list, in preference order, of directory paths to search for
