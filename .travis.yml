@@ -10,3 +10,8 @@ env:
   - GO111MODULE=on
 
 install: true
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - go: tip
