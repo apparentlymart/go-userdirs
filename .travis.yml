@@ -1,0 +1,12 @@
+language: go
+go:
+  - "1.12.x"
+  - "tip"
+
+git:
+  depth: 1
+
+env:
+  - GO111MODULE=on
+
+install: true
