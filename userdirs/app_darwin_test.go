@@ -3,6 +3,7 @@
 package userdirs
 
 import (
+	"os"
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
@@ -39,5 +40,34 @@ func TestForAppDarwin(t *testing.T) {
 				t.Errorf("wrong result\n%s", diff)
 			}
 		})
+	}
+}
+
+func TestForAppDarwinNoEnv(t *testing.T) {
+	// This test deals with the situation where no environment variables are
+	// set at all, including $HOME. In that case the results will vary depending
+	// on where we are running, so we'll run this one only inside the Travis-CI
+	// test runs so we can depend on its execution environment.
+	if travisEnv := os.Getenv("TRAVIS"); travisEnv == "" {
+		t.Skipf("No-environment tests run only in Travis-CI")
+	}
+
+	defer testTempEnvMany(map[string]string{
+		"HOME":            "",
+	})()
+
+	got := ForApp("Spline Reticulator", "Acme Corp", "com.example.splines")
+	want := Dirs{
+		ConfigDirs: []string{
+			"/Users/travis/Library/Application Support/com.example.splines",
+		},
+		DataDirs: []string{
+			"/Users/travis/Library/Application Support/com.example.splines",
+			"/Library/Application Support/com.example.splines",
+		},
+		CacheDir: "/Users/travis/Library/Caches/com.example.splines",
+	}
+	if diff := cmp.Diff(want, got); diff != "" {
+		t.Errorf("wrong result\n%s", diff)
 	}
 }
