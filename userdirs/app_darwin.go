@@ -24,6 +24,6 @@ func forApp(name string, vendor string, bundleID string) Dirs {
 		// files in there.
 		ConfigDirs: []string{appSupportDir},
 		DataDirs:   []string{appSupportDir, globalAppSupportDir},
-		CacheDir:   []string{cachesDir},
+		CacheDir:   cachesDir,
 	}
 }
