@@ -1,5 +1,7 @@
 // +build windows
 
+package userdirs
+
 import (
 	"path/filepath"
 
