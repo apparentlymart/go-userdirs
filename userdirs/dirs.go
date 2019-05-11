@@ -31,6 +31,12 @@ type Dirs struct {
 	// The cache is suitable only for data that the calling application could
 	// recreate if lost. Any file or directory under this prefix may be deleted
 	// at any time by other software.
+	//
+	// This directory may, on some systems, match one of the directories
+	// returned in ConfigDirs and/or DataDirs. For this reason applications
+	// must ensure that they do not misinterpret config and data files as
+	// cache files, and in particular should not naively purge a cache by
+	// emptying this directory.
 	CacheDir string
 }
 
