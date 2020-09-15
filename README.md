@@ -12,8 +12,8 @@ It has first-class support for the following operating systems:
 - Mac OS X, following the [Library directory layout guidelines](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html#//apple_ref/doc/uid/TP40010672-CH2-SW1).
 - Linux, following the [XDG Base Directory specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-0.8.html), currently version 0.8.
 
-The library also supports AIX, DragonFlyBSD, FreeBSD, NetBSD, and Solaris by
-following the XDG specification, treating them like Linux.
+The library also supports AIX, DragonFlyBSD, FreeBSD, NetBSD, OpenBSD, and
+Solaris by following the XDG specification, treating them like Linux.
 
 ---
 
